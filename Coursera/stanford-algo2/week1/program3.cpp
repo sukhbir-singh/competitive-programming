@@ -3,6 +3,8 @@ using namespace std;
 
 // done
 
+//Note : by mistake i have implemented krushkal in this assignment instead of prim
+
 class edge{
 public:
 	int i,j,w;
