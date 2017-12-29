@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fr(i,a,b) for(long long i = (long long)(a); i < (long long)(b); i++)
+#define rfr(i,a,b) for(long long i = (long long)(a); i >= (long long)(b); i--)
+#define mkp(i,j) make_pair(i,j)
+#define MOD 1000000007
+typedef long long lg;
+typedef pair<lg,lg> pii;
+
+int main(){
+    ios_base::sync_with_stdio(false); 
+    lg t,n,m,a,b;
+    cin>>n>>a>>b;
+    lg a1=a,a2=b;
+
+    if(n==a+b){
+    	cout<<1<<endl;
+    	return 0;
+    }else{
+    	lg arr[n];
+    	memset(arr,0,sizeof(arr));
+    	int index=0;
+
+    	while(a>0 && b>0){
+    		index=index%n;
+
+    		if(index%2==0){
+    			b--;
+    			arr[index]=arr[index]+1;
+    		}else{
+    			a--;
+    			arr[index]=arr[index]+1;
+    		}
+    		index++;
+    	}
+
+    	lg min=INT_MAX;
+    	fr(i,0,n){
+    		if(arr[i]<min){
+    			min=arr[i];
+    		}
+    	}
+
+    	lg mx=max(min,(long long)(a1/n));
+    	mx=max(mx,(long long)(a2/n));
+
+    	cout<<mx<<endl;
+    }
+
+    return 0;
+}
+
